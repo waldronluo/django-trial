@@ -1,0 +1,33 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/static/css/bootstrap.min.css">
+  </head>
+  <body>
+    <div class="container">
+    {% for block in blocks %}
+      <h1>{{block.title}}</h1>
+      <ul>
+      {% for item in items %}
+        {% if item.block.title == block.title%}
+        <li>
+          <h3>{{item.name}}</h2>
+          <address>{{item.address}}</address>
+          <p>{{item.content}}</p>
+          <p class="text-right">{{item.beginDate}} - {{item.endDate}}</p>
+        </li>
+        {% endif %}
+      {% endfor %}
+    </ul>
+    {% endfor %}
+  </div>
+  </body>
+</html>
